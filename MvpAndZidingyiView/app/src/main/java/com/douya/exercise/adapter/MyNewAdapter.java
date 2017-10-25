@@ -108,6 +108,7 @@ public class MyNewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public int getItemViewType(int position) {
+
         if(position==getItemCount()-1){
             return 0;
         }else if(position==0){
@@ -120,6 +121,7 @@ public class MyNewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
         public VHFooter(View itemView) {
             super(itemView);
+
         }
     }
     private class BannerHolder extends RecyclerView.ViewHolder{

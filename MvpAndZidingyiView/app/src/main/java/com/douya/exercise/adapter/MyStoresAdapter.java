@@ -5,11 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.douya.exercise.R;
 import com.douya.exercise.bean.InfoBean;
+import com.douya.exercise.myView.RoundImageView;
+import com.douya.exercise.utils.TwoImageUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -45,6 +46,7 @@ public class MyStoresAdapter extends RecyclerView.Adapter<MyStoresAdapter.MyView
                     return;
                 }
                 Picasso.with(context).load(s1).into(holder.iv_stores);
+                TwoImageUtils.loadImage(s1,holder.iv_stores);
             }
         }
 
@@ -58,12 +60,12 @@ public class MyStoresAdapter extends RecyclerView.Adapter<MyStoresAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private final ImageView iv_stores;
+        private final RoundImageView iv_stores;
         private final TextView tv_stores;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            iv_stores = (ImageView) itemView.findViewById(R.id.iv_stores);
+            iv_stores = (RoundImageView) itemView.findViewById(R.id.iv_stores);
             tv_stores = (TextView) itemView.findViewById(R.id.tv_stores);
         }
     }

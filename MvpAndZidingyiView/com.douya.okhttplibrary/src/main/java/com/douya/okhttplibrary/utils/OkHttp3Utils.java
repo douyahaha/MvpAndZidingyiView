@@ -74,7 +74,7 @@ public class OkHttp3Utils {
  * 通过builder配置好OkHttpClient后用builder.build()来返回OkHttpClient，
  * 所以我们通常不会调用new OkHttpClient()来得到OkHttpClient，而是通过builder.build()：
  */
-            //  File sdcache = getExternalCacheDir();
+//              File sdcache = getExternalCacheDir();
             //缓存目录
             File sdcache = new File(Environment.getExternalStorageDirectory(), "cache");
             int cacheSize = 10 * 1024 * 1024;

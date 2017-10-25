@@ -60,7 +60,7 @@ public class NewsFragment extends Fragment {
                 }
             }
         });
-        //给RecycleView天机滚动监听
+        //给RecycleView添加滚动监听
        recycle_news.addOnScrollListener(new RecyclerView.OnScrollListener(){
            private int lastPOsition;
            @Override
