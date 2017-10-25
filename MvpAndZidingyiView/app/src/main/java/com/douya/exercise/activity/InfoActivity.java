@@ -5,14 +5,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.douya.exercise.R;
 import com.douya.exercise.adapter.MyStoresAdapter;
 import com.douya.exercise.bean.InfoBean;
+import com.douya.exercise.myView.RoundImageView;
 import com.douya.exercise.presenter.PresenterImpl;
+import com.douya.exercise.utils.TwoImageUtils;
 import com.douya.exercise.view.ViewInterface;
 import com.squareup.picasso.Picasso;
 
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class InfoActivity extends AppCompatActivity implements ViewInterface {
 
-    private ImageView iv_info;
+    private RoundImageView iv_info;
     private TextView tv_infoName;
     private TextView tv_infoDescription;
     private RecyclerView recycle_stores;
@@ -37,7 +38,8 @@ public class InfoActivity extends AppCompatActivity implements ViewInterface {
     }
 
     private void initView() {
-        iv_info = (ImageView) findViewById(R.id.iv_info);
+        iv_info = (RoundImageView) findViewById(R.id.iv_info);
+
         tv_infoName = (TextView) findViewById(R.id.tv_infoName);
         tv_infoDescription = (TextView) findViewById(R.id.tv_infoDescription);
         recycle_stores = (RecyclerView) findViewById(R.id.recycle_stores);
@@ -49,6 +51,8 @@ public class InfoActivity extends AppCompatActivity implements ViewInterface {
     @Override
     public void onSucceed(InfoBean infoBean) {
         Picasso.with(InfoActivity.this).load(infoBean.getImage()).into(iv_info);
+        TwoImageUtils.loadImage(infoBean.getImage(),iv_info);
+
         tv_infoName.setText(infoBean.getName());
         tv_infoDescription.setText(infoBean.getDescription());
         List<InfoBean.StoriesBean> stories = infoBean.getStories();
